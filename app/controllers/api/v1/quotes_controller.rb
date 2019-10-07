@@ -1,4 +1,6 @@
-class QuotesController < ApplicationController
+class Api::V1::QuotesController < ApplicationController
+
+    before_action :set_quote, only: [:show, :update, :destroy]
 
     # GET /quotes
     def index
@@ -9,8 +11,6 @@ class QuotesController < ApplicationController
 
     # GET /quotes/1
     def show
-        @quote = Quote.find(params[:id])
-
         render json: @quote
     end
 
@@ -27,8 +27,6 @@ class QuotesController < ApplicationController
 
     # PATCH/PUT /quotes/1
     def update
-        @quote = Quote.find(params[:id])
-
         if @quote.update(quote_params)
             render json: @quote
         else
@@ -38,8 +36,6 @@ class QuotesController < ApplicationController
 
     # DELETE /quotes/1
     def destroy
-        @quote = Quote.find(params[:id])
-
         if @quote.destroy
             render json: @quote.id
         else
@@ -48,7 +44,7 @@ class QuotesController < ApplicationController
     end
 
     private
-    
+
     def set_quote
         @quote = Quote.find(params[:id])
     end
