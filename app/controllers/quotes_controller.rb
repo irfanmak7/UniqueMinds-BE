@@ -23,7 +23,13 @@ class QuotesController < ApplicationController
     end
 
     def update
+        @quote = Quote.find(params[:id])
 
+        if @quote.update(quote_params)
+            render json: @quote
+        else
+            render json: {status: 500, message: 'Quote cannot be updated'}
+        end
     end
 
     def destroy
