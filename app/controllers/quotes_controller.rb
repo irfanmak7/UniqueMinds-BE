@@ -7,11 +7,19 @@ class QuotesController < ApplicationController
     end
 
     def show
-        
+        @quote = Quote.find(params[:id])
+
+        render json: @quote
     end
 
     def create
+        @quote = Quote.new(quote_params)
 
+        if @quote.save
+            render json: @quote
+        else
+            render json: {status: 500, message: 'Quote cannot be created'}
+        end
     end
 
     def update
