@@ -20,14 +20,27 @@ class UsersController < ApplicationController
             render json: @user
         else
             render json: {status 500, message: 'User cannot be created'}
+        end
     end
 
     def update
+        @user = User.find(params[:id])
 
+        if @user.update(user_params)
+            render json: @user
+        else
+            render json: {status: 500, message: 'User cannot be updated'}
+        end
     end
 
     def destroy
+        @user = User.find(params[:id])
 
+        if @user.destroy
+            render json: @user.id
+        else
+            render json: {status 500, message: 'User cannot be deleted'}
+        end
     end
 
     private
