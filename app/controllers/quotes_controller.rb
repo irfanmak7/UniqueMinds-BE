@@ -20,4 +20,10 @@ class QuotesController < ApplicationController
 
     end
 
+    private
+
+    def quote_params
+        params.require(:quote).permit(:content, :author)
+    end
+
 end
