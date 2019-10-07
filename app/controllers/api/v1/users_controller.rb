@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
             #session[user_id] = @user.id
             render json: @user
         else
-            render json: {status 500, message: 'User cannot be created'}
+            render json: {status: 500, message: 'User cannot be created'}
         end
     end
 
@@ -35,7 +35,7 @@ class Api::V1::UsersController < ApplicationController
         if @user.destroy
             render json: @user.id
         else
-            render json: {status 500, message: 'User cannot be deleted'}
+            render json: {status: 500, message: 'User cannot be deleted'}
         end
     end
 
