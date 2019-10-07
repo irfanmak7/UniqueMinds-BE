@@ -9,5 +9,7 @@
 User.create(name: "Johhny Appleseed", email: "johnnyappleseed@test.com", password: "test123")
 User.create(name: "Jane Appleseed", email: "janeappleseed@test.com", password: "test789")
 
-Quote.create(content: "The way to get started is to quit talking and begin doing.", author: "Walt Disney")
-Quote.create(content: "Whoever is happy will make others happy too.", author: "Anne Frank")
+Quote.create(content: "The way to get started is to quit talking and begin doing.", author: "Walt Disney", user_id: 1)
+Quote.create(content: "Whoever is happy will make others happy too.", author: "Anne Frank", user_id: 1)
+Quote.create(content: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein", user_id: 2)
+Quote.create(content: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky", user_id: 2)
